@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ISalaRepository extends JpaRepository<Sala, Long> {
-
+    Sala findByLetraSala(String letraSala);
 }
