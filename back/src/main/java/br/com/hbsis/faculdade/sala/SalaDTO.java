@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 
 public class SalaDTO {
     @NotNull
-    @NotBlank
     private Integer serie;
     @NotNull
     @NotBlank
