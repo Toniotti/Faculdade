@@ -20,7 +20,7 @@ public class AlunoService {
     }
 
     public AlunoDTO save(AlunoDTO alunoDTO) throws InvalidPropertiesFormatException {
-        Sala sala = this.salaService.findEntityByLetra(alunoDTO.getSala());
+        Sala sala = this.salaService.findEntityByLetra(alunoDTO.getSerie(), alunoDTO.getSala());
         Aluno aluno = new Aluno(
                 alunoDTO.getNome(),
                 sala
@@ -29,22 +29,22 @@ public class AlunoService {
         return AlunoDTO.of(this.alunoRepository.save(aluno));
     }
 
-    public AlunoDTO update(AlunoDTO alunoDTO, String nome, String letraSala) throws InvalidPropertiesFormatException {
-        Aluno aluno = this.findEntityByNomeAndSala(nome, letraSala);
-        aluno.setNome(alunoDTO.getNome());
-        aluno.setSala(this.salaService.findEntityByLetra(alunoDTO.getSala()));
+    public AlunoDTO update(AlunoDTO novoAluno, AlunoDTO antigoAluno) throws InvalidPropertiesFormatException {
+        Aluno aluno = this.findEntityByDTO(antigoAluno);
+        aluno.setNome(novoAluno.getNome());
+        aluno.setSala(this.salaService.findEntityByLetra(novoAluno.getSerie(), novoAluno.getSala()));
 
         return AlunoDTO.of(this.alunoRepository.save(aluno));
     }
 
-    public void delete(String nome, String sala){
-        Aluno aluno = this.findEntityByNomeAndSala(nome, sala);
+    public void delete(AlunoDTO alunoDTO){
+        Aluno aluno = this.findEntityByDTO(alunoDTO);
         this.alunoRepository.delete(aluno);
     }
 
-    public Aluno findEntityByNomeAndSala(String nome, String letraSala){
-        Sala sala = this.salaService.findEntityByLetra(letraSala);
-        Aluno aluno = this.alunoRepository.findByNomeAndSala(nome, sala);
+    public Aluno findEntityByDTO(AlunoDTO alunoDTO){
+        Sala sala = this.salaService.findEntityByLetra(alunoDTO.getSerie(), alunoDTO.getSala());
+        Aluno aluno = this.alunoRepository.findByNomeAndSala(alunoDTO.getNome(), sala);
 
         if (aluno != null) {
             return this.alunoRepository.save(aluno);

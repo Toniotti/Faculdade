@@ -15,8 +15,7 @@ public class Sala {
     public Sala() {
     }
 
-    public Sala(Long id, int serie, String letra_sala) {
-        this.id = id;
+    public Sala(int serie, String letra_sala) {
         this.serie = serie;
         this.letraSala = letra_sala;
     }

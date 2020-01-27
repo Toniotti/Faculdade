@@ -10,11 +10,13 @@ public class AlunoDTO {
     @NotNull
     @NotBlank
     private String sala;
+    @NotNull
+    private Integer serie;
 
     public AlunoDTO() {
     }
 
-    public AlunoDTO(String nome, String letraSala) {
+    public AlunoDTO(String nome, String letraSala, Integer serie) {
         this.nome = nome;
         this.sala = letraSala;
     }
@@ -22,7 +24,9 @@ public class AlunoDTO {
     public static AlunoDTO of(Aluno aluno) {
         return new AlunoDTO(
                 aluno.getNome(),
-                aluno.getSala().getLetraSala());
+                aluno.getSala().getLetraSala(),
+                aluno.getSala().getSerie()
+                );
     }
 
     public String getNome() {
@@ -39,5 +43,13 @@ public class AlunoDTO {
 
     public void setSala(String sala) {
         this.sala = sala;
+    }
+
+    public Integer getSerie() {
+        return serie;
+    }
+
+    public void setSerie(Integer serie) {
+        this.serie = serie;
     }
 }

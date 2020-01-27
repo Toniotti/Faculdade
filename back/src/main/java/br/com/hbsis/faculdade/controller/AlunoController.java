@@ -33,6 +33,6 @@ public class AlunoController {
 
     @GetMapping("/aluno/{nome}/{letraSala}")
     public AlunoDTO getAluno(@Valid @RequestParam("nome") String nome, @RequestParam("letraSala") String letraSala){
-        return AlunoDTO.of(this.alunoService.findEntityByNomeAndSala(nome, letraSala));
+        return AlunoDTO.of(this.alunoService.findEntityByDTO(nome, letraSala));
     }
 }
