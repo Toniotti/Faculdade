@@ -20,7 +20,6 @@ public class AlunoService {
     }
 
     public AlunoDTO save(AlunoDTO alunoDTO) throws InvalidPropertiesFormatException {
-        this.validateDto(alunoDTO);
         Sala sala = this.salaService.findEntityByLetra(alunoDTO.getSala());
         Aluno aluno = new Aluno(
                 alunoDTO.getNome(),
@@ -31,7 +30,6 @@ public class AlunoService {
     }
 
     public AlunoDTO update(AlunoDTO alunoDTO, String nome, String letraSala) throws InvalidPropertiesFormatException {
-        this.validateDto(alunoDTO);
         Aluno aluno = this.findEntityByNomeAndSala(nome, letraSala);
         aluno.setNome(alunoDTO.getNome());
         aluno.setSala(this.salaService.findEntityByLetra(alunoDTO.getSala()));
@@ -54,12 +52,4 @@ public class AlunoService {
         throw new NoResultException("Nenhum aluno encontrado com esse nome.");
     }
 
-    private void validateDto(AlunoDTO alunoDTO) throws InvalidPropertiesFormatException {
-        if (alunoDTO.getNome().isEmpty() || alunoDTO.getNome() == null) {
-            throw new InvalidPropertiesFormatException("O nome não pode estar vazio.");
-        }
-        if (alunoDTO.getSala().isEmpty() || alunoDTO.getSala() == null) {
-            throw new InvalidPropertiesFormatException("A letra da sala não pode estar vazia.");
-        }
-    }
 }

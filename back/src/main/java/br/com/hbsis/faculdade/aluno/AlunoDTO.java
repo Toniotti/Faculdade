@@ -1,7 +1,14 @@
 package br.com.hbsis.faculdade.aluno;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class AlunoDTO {
+    @NotNull
+    @NotBlank
     private String nome;
+    @NotNull
+    @NotBlank
     private String sala;
 
     public AlunoDTO() {
