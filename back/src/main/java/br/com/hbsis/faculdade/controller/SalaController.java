@@ -34,6 +34,6 @@ public class SalaController {
 
     @GetMapping("/sala/{serie}/{letra}")
     public SalaDTO getSala(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
-        return SalaDTO.of(this.salaService.findEntityByLetra(serie, letra));
+        return SalaDTO.of(this.salaService.findEntityBySerieAndLetra(serie, letra));
     }
 }

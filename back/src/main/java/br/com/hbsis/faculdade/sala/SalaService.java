@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SalaService {
@@ -14,7 +16,7 @@ public class SalaService {
         this.salaRepository = salaRepository;
     }
 
-    public Sala findEntityByLetra(Integer serie, String letraSala) {
+    public Sala findEntityBySerieAndLetra(Integer serie, String letraSala) {
         Sala sala = this.salaRepository.findBySerieAndLetraSala(serie, letraSala);
         if (!(sala == null)) {
             return sala;
@@ -29,7 +31,7 @@ public class SalaService {
     }
 
     public SalaDTO update(SalaDTO salaDTO, Integer serie, String letra){
-        Sala sala = this.findEntityByLetra(serie, letra);
+        Sala sala = this.findEntityBySerieAndLetra(serie, letra);
         sala.setLetraSala(letra);
         sala.setSerie(serie);
 
@@ -37,11 +39,23 @@ public class SalaService {
     }
 
     public SalaDTO delete(Integer serie, String letra){
-        Sala sala = this.findEntityByLetra(serie, letra);
+        Sala sala = this.findEntityBySerieAndLetra(serie, letra);
         if(sala != null){
             return SalaDTO.of(sala);
         }
         throw new NoResultException("Nenhuma sala encontrada para essa serie e letra.");
     }
 
+    public List<SalaDTO> getAllSalas(){
+        List<SalaDTO> salaList = new ArrayList<>();
+        for (Sala sala : this.salaRepository.findAll()){
+            salaList.add(SalaDTO.of(sala));
+        }
+
+        if(salaList.isEmpty()){
+            throw new NoResultException("Nenhuma sala foi encontrada.");
+        }
+
+        return salaList;
+    }
 }
