@@ -19,6 +19,7 @@ public class AlunoDTO {
     public AlunoDTO(String nome, String letraSala, Integer serie) {
         this.nome = nome;
         this.sala = letraSala;
+        this.serie = serie;
     }
 
     public static AlunoDTO of(Aluno aluno) {
