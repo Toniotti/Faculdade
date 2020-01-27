@@ -22,17 +22,17 @@ public class AlunoController {
     }
 
     @PostMapping("/aluno/update")
-    public AlunoDTO update(@Valid @RequestBody AlunoDTO alunoDTO, @RequestParam("nome") String nome, @RequestParam("letraSala") String letraSala) throws InvalidPropertiesFormatException {
-        return this.alunoService.update(alunoDTO, nome, letraSala);
+    public AlunoDTO update(@Valid @RequestBody AlunoDTO novoAluno, @Valid @RequestBody AlunoDTO antigoAluno) throws InvalidPropertiesFormatException {
+        return this.alunoService.update(novoAluno, antigoAluno);
     }
 
     @PostMapping("/aluno/delete")
-    public void delete(@RequestParam("nome") String nome, @RequestParam("letraSala") String letraSala){
-        this.alunoService.delete(nome, letraSala);
+    public void delete(@Valid @RequestBody AlunoDTO alunoDTO){
+        this.alunoService.delete(alunoDTO);
     }
 
     @GetMapping("/aluno/{nome}/{letraSala}")
-    public AlunoDTO getAluno(@Valid @RequestParam("nome") String nome, @RequestParam("letraSala") String letraSala){
-        return AlunoDTO.of(this.alunoService.findEntityByNomeAndSala(nome, letraSala));
+    public AlunoDTO getAluno(@Valid @RequestBody AlunoDTO alunoDTO){
+        return AlunoDTO.of(this.alunoService.findEntityByDTO(alunoDTO));
     }
 }
