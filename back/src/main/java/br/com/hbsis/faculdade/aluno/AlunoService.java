@@ -20,7 +20,7 @@ public class AlunoService {
     }
 
     public AlunoDTO save(AlunoDTO alunoDTO) throws InvalidPropertiesFormatException {
-        Sala sala = this.salaService.findEntityByLetra(alunoDTO.getSerie(), alunoDTO.getSala());
+        Sala sala = this.salaService.findEntityBySerieAndLetra(alunoDTO.getSerie(), alunoDTO.getSala());
         Aluno aluno = new Aluno(
                 alunoDTO.getNome(),
                 sala
@@ -32,7 +32,7 @@ public class AlunoService {
     public AlunoDTO update(AlunoDTO novoAluno, AlunoDTO antigoAluno) throws InvalidPropertiesFormatException {
         Aluno aluno = this.findEntityByDTO(antigoAluno);
         aluno.setNome(novoAluno.getNome());
-        aluno.setSala(this.salaService.findEntityByLetra(novoAluno.getSerie(), novoAluno.getSala()));
+        aluno.setSala(this.salaService.findEntityBySerieAndLetra(novoAluno.getSerie(), novoAluno.getSala()));
 
         return AlunoDTO.of(this.alunoRepository.save(aluno));
     }
@@ -43,7 +43,7 @@ public class AlunoService {
     }
 
     public Aluno findEntityByDTO(AlunoDTO alunoDTO){
-        Sala sala = this.salaService.findEntityByLetra(alunoDTO.getSerie(), alunoDTO.getSala());
+        Sala sala = this.salaService.findEntityBySerieAndLetra(alunoDTO.getSerie(), alunoDTO.getSala());
         Aluno aluno = this.alunoRepository.findByNomeAndSala(alunoDTO.getNome(), sala);
 
         if (aluno != null) {
