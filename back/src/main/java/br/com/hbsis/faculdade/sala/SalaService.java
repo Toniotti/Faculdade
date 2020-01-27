@@ -35,4 +35,13 @@ public class SalaService {
 
         return SalaDTO.of(this.salaRepository.save(sala));
     }
+
+    public SalaDTO delete(Integer serie, String letra){
+        Sala sala = this.findEntityByLetra(serie, letra);
+        if(sala != null){
+            return SalaDTO.of(sala);
+        }
+        throw new NoResultException("Nenhuma sala encontrada para essa serie e letra.");
+    }
+
 }
