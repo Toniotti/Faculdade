@@ -32,8 +32,8 @@ public class SalaService {
 
     public SalaDTO update(SalaDTO salaDTO, Integer serie, String letra){
         Sala sala = this.findEntityBySerieAndLetra(serie, letra);
-        sala.setLetraSala(letra);
-        sala.setSerie(serie);
+        sala.setLetraSala(salaDTO.getLetra());
+        sala.setSerie(salaDTO.getSerie());
 
         return SalaDTO.of(this.salaRepository.save(sala));
     }
