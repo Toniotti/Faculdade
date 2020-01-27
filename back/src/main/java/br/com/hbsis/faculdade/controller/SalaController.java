@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -35,5 +36,10 @@ public class SalaController {
     @GetMapping("/sala/{serie}/{letra}")
     public SalaDTO getSala(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
         return SalaDTO.of(this.salaService.findEntityBySerieAndLetra(serie, letra));
+    }
+
+    @GetMapping("/sala/all")
+    public List<SalaDTO> getAll(){
+        return this.salaService.getAllSalas();
     }
 }
