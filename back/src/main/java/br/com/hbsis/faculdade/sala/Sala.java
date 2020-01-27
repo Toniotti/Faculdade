@@ -2,7 +2,7 @@ package br.com.hbsis.faculdade.sala;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "sala")
 public class Sala {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,13 +12,13 @@ public class Sala {
     @Column(name = "letra_sala")
     private String letraSala;
 
+    public Sala() {
+    }
+
     public Sala(Long id, int serie, String letra_sala) {
         this.id = id;
         this.serie = serie;
         this.letraSala = letra_sala;
-    }
-
-    public Sala() {
     }
 
     public Long getId() {

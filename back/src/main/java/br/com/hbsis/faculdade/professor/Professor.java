@@ -5,7 +5,7 @@ import br.com.hbsis.faculdade.sala.Sala;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "professor")
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +15,13 @@ public class Professor {
     @OneToMany
     private List<Sala> sala;
 
+    public Professor() {
+    }
+
     public Professor(Long id, String nome, List<Sala> sala) {
         this.id = id;
         this.nome = nome;
         this.sala = sala;
-    }
-
-    public Professor() {
     }
 
     public Long getId() {

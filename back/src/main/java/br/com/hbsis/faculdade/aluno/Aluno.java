@@ -4,24 +4,22 @@ import br.com.hbsis.faculdade.sala.Sala;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "aluno")
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "nome")
     private String nome;
-    @OneToMany
-    @Column(name = "sala")
+    @OneToOne
     private Sala sala;
 
-    public Aluno(Long id, String nome, Sala sala) {
-        this.id = id;
-        this.nome = nome;
-        this.sala = sala;
+    public Aluno() {
     }
 
-    public Aluno() {
+    public Aluno(String nome, Sala sala) {
+        this.nome = nome;
+        this.sala = sala;
     }
 
     public Long getId() {
