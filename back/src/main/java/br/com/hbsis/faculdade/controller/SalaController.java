@@ -29,8 +29,8 @@ public class SalaController {
     }
 
     @PostMapping("/sala/delete/{serie}/{letra}")
-    public SalaDTO delete(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
-        return this.salaService.delete(serie, letra);
+    public void delete(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
+        this.salaService.delete(serie, letra);
     }
 
     @GetMapping("/sala/{serie}/{letra}")
