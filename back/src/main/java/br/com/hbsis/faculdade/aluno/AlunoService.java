@@ -61,7 +61,12 @@ public class AlunoService {
     public List<AlunoDTO> getAllPaginated(String nome, String letra, int serie, int page, int size){
         Sala sala = this.salaService.findEntityBySerieAndLetra(serie, letra);
         List<AlunoDTO> alunoDTOList = new ArrayList<>();
-        this.alunoRepository.findByNomeAndSala(nome, sala, PageRequest.of(page, size)).forEach(aluno -> alunoDTOList.add(AlunoDTO.of(aluno)));
+        this.alunoRepository.findByNomeContainingIgnoreCaseAndSala(nome, sala, PageRequest.of(page, size)).forEach(aluno -> alunoDTOList.add(AlunoDTO.of(aluno)));
+
+        if(alunoDTOList.isEmpty()){
+            throw new NoResultException("Aluno não encontrado.");
+        }
+
         return alunoDTOList;
     }
 
