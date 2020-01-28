@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.InvalidPropertiesFormatException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -17,22 +18,27 @@ public class AlunoController {
     }
 
     @PostMapping("/aluno/save")
-    public AlunoDTO save(@Valid @RequestBody AlunoDTO alunoDTO) throws InvalidPropertiesFormatException {
+    public AlunoDTO save(@Valid @RequestBody AlunoDTO alunoDTO) {
         return this.alunoService.save(alunoDTO);
     }
 
-    @PostMapping("/aluno/update")
-    public AlunoDTO update(@Valid @RequestBody AlunoDTO novoAluno, @Valid @RequestBody AlunoDTO antigoAluno) throws InvalidPropertiesFormatException {
-        return this.alunoService.update(novoAluno, antigoAluno);
+    @PutMapping("/aluno/update/{id}")
+    public AlunoDTO update(@Valid @RequestBody AlunoDTO alunoDTO, @PathVariable("id") Long id) {
+        return this.alunoService.update(alunoDTO, id);
     }
 
-    @PostMapping("/aluno/delete")
-    public void delete(@Valid @RequestBody AlunoDTO alunoDTO){
-        this.alunoService.delete(alunoDTO);
+    @DeleteMapping("/aluno/delete/{id}")
+    public void delete(@PathVariable("id") Long id){
+        this.alunoService.delete(id);
     }
 
-    @GetMapping("/aluno/{nome}/{letraSala}")
-    public AlunoDTO getAluno(@Valid @RequestBody AlunoDTO alunoDTO){
-        return AlunoDTO.of(this.alunoService.findEntityByDTO(alunoDTO));
+    @GetMapping("/aluno/{matricula}")
+    public AlunoDTO getAluno(@PathVariable("matricula") Long matricula){
+        return this.alunoService.get(matricula);
+    }
+
+    @GetMapping("/aluno/search/{nome}/{serie}/{letra}/{page}/{size}")
+    public List<AlunoDTO> searchBySala(@PathVariable("nome") String nome, @PathVariable("serie") Integer serie, @PathVariable("letra") String letra, @PathVariable("page") int page, @PathVariable("size") int size){
+        return this.alunoService.getAllPaginated(nome, letra, serie, page, size);
     }
 }

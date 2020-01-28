@@ -4,6 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class AlunoDTO {
+    private Long matricula;
     @NotNull
     @NotBlank
     private String nome;
@@ -22,8 +23,16 @@ public class AlunoDTO {
         this.serie = serie;
     }
 
+    public AlunoDTO(@NotNull Long matricula, @NotNull @NotBlank String nome, @NotNull @NotBlank String sala, @NotNull Integer serie) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.sala = sala;
+        this.serie = serie;
+    }
+
     public static AlunoDTO of(Aluno aluno) {
         return new AlunoDTO(
+                aluno.getId(),
                 aluno.getNome(),
                 aluno.getSala().getLetraSala(),
                 aluno.getSala().getSerie()
@@ -52,5 +61,13 @@ public class AlunoDTO {
 
     public void setSerie(Integer serie) {
         this.serie = serie;
+    }
+
+    public Long getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Long matricula) {
+        this.matricula = matricula;
     }
 }
