@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface IAlunoRepository extends JpaRepository<Aluno, Long> {
-    List<Aluno> findByNomeAndSala(String nome, Sala sala, Pageable pageable);
+    List<Aluno> findByNomeContainingIgnoreCaseAndSala(String nome, Sala sala, Pageable pageable);
 }
