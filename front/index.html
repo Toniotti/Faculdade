@@ -7,22 +7,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="faculdadeapp.js"></script>
-    <title>Faculdade</title>
 </head>
 <body ng-controller="home">
+  <title ></title>
     <div class="d-flex" id="wrapper">
-
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
           <div class="sidebar-heading" ng-click="mudarRota('/')">Faculdade</div>
           <div class="list-group list-group-flush">
-                <button ng-click="mudarRota('/gerenciar/alunos')" class="list-group-item list-group-item-action bg-light">Gerenciar Alunos</button>
+                <button ng-click="mudarRota('/gerenciar/alunos')" class="list-group-item list-group-item-action bg-light dropdown-aluno">Gerenciar Alunos</button>
+                <div class="dropdown-aluno-content">
+                  <button class="list-group-item list-group-item-action bg-light">Pesquisar</button>
+                  <button class="list-group-item list-group-item-action bg-light">Cadastrar</button>
+                </div>
                 <button class="list-group-item list-group-item-action bg-light">Gerenciar Professores</button>
                 <button class="list-group-item list-group-item-action bg-light">Gerenciar Salas</button>
           </div>
         </div>
         <!-- /#sidebar-wrapper -->
-
-        <ng-view></ng-view>
+        
+          <ng-view></ng-view>
 </body>
 </html>

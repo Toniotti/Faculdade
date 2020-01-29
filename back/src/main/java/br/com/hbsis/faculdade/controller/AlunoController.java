@@ -5,6 +5,7 @@ import br.com.hbsis.faculdade.aluno.AlunoService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 

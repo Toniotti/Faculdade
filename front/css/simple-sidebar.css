@@ -47,3 +47,11 @@ body {
     margin-left: -15rem;
   }
 }
+
+.dropdown-aluno:hover .dropdown-aluno-content{
+  display: none;
+}
+
+.dropdown-aluno-content{
+  display: block;
+}
