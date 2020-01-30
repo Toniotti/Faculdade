@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="faculdadeApp">
+
 <head>
-    <meta charset="UTF-8">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <script src="faculdadeapp.js"></script>
+  <meta charset="UTF-8">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="faculdadeapp.js"></script>
 </head>
+
 <body ng-controller="home">
-  <title ></title>
-    <div class="d-flex" id="wrapper">
-        <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
-          <div class="sidebar-heading" ng-click="mudarRota('/')">Faculdade</div>
-          <div class="list-group list-group-flush">
-                <button ng-click="mudarRota('/gerenciar/alunos')" class="list-group-item list-group-item-action bg-light dropdown-aluno">Gerenciar Alunos</button>
-                <div class="dropdown-aluno-content">
-                  <button class="list-group-item list-group-item-action bg-light">Pesquisar</button>
-                  <button class="list-group-item list-group-item-action bg-light">Cadastrar</button>
-                </div>
-                <button class="list-group-item list-group-item-action bg-light">Gerenciar Professores</button>
-                <button class="list-group-item list-group-item-action bg-light">Gerenciar Salas</button>
+  <title></title>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" ng-click="mudarRota('/')">Faculdade</div>
+      <div class="list-group list-group-flush">
+        <!-- dropdown aluno -->
+        <div id="button-dropdown-aluno">
+          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Alunos</button>
+          <div id="dropdownAlunoContent">
+            <button ng-click="mudarRota('/gerenciar/alunos/pesquisa')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
+            <button ng-click="mudarRota('/gerenciar/alunos/cadastro')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
           </div>
         </div>
-        <!-- /#sidebar-wrapper -->
-        
-          <ng-view></ng-view>
+
+        <!-- dropdown professor -->
+        <div id="button-dropdown-professor">
+          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Professor</button>
+          <div id="dropdownProfessorContent">
+            <button ng-click="mudarRota('/gerenciar/professores/pesquisa')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
+            <button ng-click="mudarRota('/gerenciar/professores/cadastro')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
+          </div>
+        </div>
+
+        <!-- dropdown sala -->
+        <div id="button-dropdown-sala">
+          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Salas</button>
+          <div id="dropdownSalaContent">
+            <button ng-click="mudarRota('/gerenciar/sala/pesquisa')" class="list-group-item list-group-item-action ">Pesquisar</button>
+            <button ng-click="mudarRota('/gerenciar/sala/cadastro')" class="list-group-item list-group-item-action ">Cadastrar</button>          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <div class="teste"></div>
+
+    <ng-view></ng-view>
 </body>
+
 </html>

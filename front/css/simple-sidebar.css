@@ -14,6 +14,7 @@ body {
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+  transition: 0.9s height;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -48,10 +49,64 @@ body {
   }
 }
 
-.dropdown-aluno:hover .dropdown-aluno-content{
-  display: none;
+.dropdownButton {
+  height: 50px;
 }
 
-.dropdown-aluno-content{
+
+/* dropdown aluno */
+#button-dropdown-aluno {
+  overflow: hidden;
+}
+
+#button-dropdown-aluno:hover .dropdownButton + #dropdownAlunoContent{
   display: block;
+  animation-name: heightTransition;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+#dropdownAlunoContent{
+  height: 0px;
+}
+
+/* dropdown professor */
+
+#button-dropdown-professor {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+#button-dropdown-professor:hover .dropdownButton + #dropdownProfessorContent{
+  display: block;
+  animation-name: heightTransition;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+#dropdownProfessorContent{
+  height: 0px;
+}
+
+/* dropdown sala */
+
+#button-dropdown-sala {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+#button-dropdown-sala:hover .dropdownButton + #dropdownSalaContent{
+  display: block;
+  animation-name: heightTransition;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+#dropdownSalaContent{
+  height: 0px;
+}
+
+@keyframes heightTransition {
+  from { height: 0px }
+  to { height: 100px; }
 }

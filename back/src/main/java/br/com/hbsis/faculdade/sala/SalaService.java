@@ -58,4 +58,13 @@ public class SalaService {
 
         return salaList;
     }
+
+    public List<SalaDTO> getAllBySerie(int serie){
+        List<SalaDTO> salaDTOList = new ArrayList<>();
+        this.salaRepository.findBySerie(serie).forEach(sala -> salaDTOList.add(SalaDTO.of(sala)));
+        if(salaDTOList.isEmpty()){
+            throw new NoResultException("Nenhuma sala encontrada para essa serie.");
+        }
+        return salaDTOList;
+    }
 }

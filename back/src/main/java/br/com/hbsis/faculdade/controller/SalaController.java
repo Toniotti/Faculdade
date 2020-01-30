@@ -42,4 +42,9 @@ public class SalaController {
     public List<SalaDTO> getAll(){
         return this.salaService.getAllSalas();
     }
+
+    @GetMapping("/sala/all/{serie}")
+    public List<SalaDTO> getAllBySerie(@PathVariable("serie") int serie){
+        return this.salaService.getAllBySerie(serie);
+    }
 }
