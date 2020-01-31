@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="faculdadeApp">
+
+<head ng-controller="home">
+  <meta charset="UTF-8">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="./app.js"></script>
+  <script src="./routes.js"></script>
+  <script src="./js/controllers/GerenciarAlunosController.js"></script>
+  <script src="./js/controllers/GerenciarSalaController.js"></script>
+  <script src="./js/controllers/HomeController.js"></script>
+  <script src="./js/services/SalaService.js"></script>
+  <script src="./js/services/GerenciarAlunoService.js"></script>
+  <title>{{titulo}}</title>
+</head>
+
+<body ng-controller="home">
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" ng-click="mudarRota('/')">Faculdade</div>
+      <div class="list-group list-group-flush">
+        <!-- dropdown aluno -->
+        <div id="button-dropdown-aluno" ng-controller="gerenciarAlunos">
+          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Alunos</button>
+          <div id="dropdownAlunoContent">
+            <button ng-click="mudarRota('/gerenciar/alunos/pesquisa')" ng-click="changeTitle()" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
+            <button ng-click="mudarRota('/gerenciar/alunos/cadastro')" ng-click="changeTitle()" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
+          </div>
+        </div>
+
+        <!-- dropdown professor -->
+        <div id="button-dropdown-professor">
+          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Professor</button>
+          <div id="dropdownProfessorContent">
+            <button ng-click="mudarRota('/gerenciar/professores/pesquisa')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
+            <button ng-click="mudarRota('/gerenciar/professores/cadastro')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
+          </div>
+        </div>
+
+        <!-- dropdown sala -->
+        <div id="button-dropdown-sala" ng-controller="gerenciarSalas">
+          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Salas</button>
+          <div id="dropdownSalaContent">
+            <button ng-click="mudarRota('/gerenciar/sala/pesquisa')" ng-click="changeTitle()" class="list-group-item list-group-item-action ">Pesquisar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-view></ng-view>
+</body>
+
+</html>
