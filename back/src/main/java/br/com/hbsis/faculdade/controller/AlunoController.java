@@ -5,8 +5,6 @@ import br.com.hbsis.faculdade.aluno.AlunoService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.math.BigDecimal;
-import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 
 @RestController
@@ -29,17 +27,18 @@ public class AlunoController {
     }
 
     @DeleteMapping("/aluno/delete/{id}")
-    public void delete(@PathVariable("id") Long id){
+    public void delete(@PathVariable("id") Long id) {
         this.alunoService.delete(id);
     }
 
     @GetMapping("/aluno/{matricula}")
-    public AlunoDTO getAluno(@PathVariable("matricula") Long matricula){
+    public AlunoDTO getAluno(@PathVariable("matricula") Long matricula) {
         return this.alunoService.get(matricula);
     }
 
     @GetMapping("/aluno/search/{nome}/{serie}/{letra}/{page}/{size}")
-    public List<AlunoDTO> searchBySala(@PathVariable("nome") String nome, @PathVariable("serie") Integer serie, @PathVariable("letra") String letra, @PathVariable("page") int page, @PathVariable("size") int size){
+    public List<AlunoDTO> searchBySala(@PathVariable("nome") String nome, @PathVariable("serie") Integer serie, @PathVariable("letra") String letra, @PathVariable("page") int page, @PathVariable("size") int size) {
         return this.alunoService.getAllPaginated(nome, letra, serie, page, size);
     }
+
 }
