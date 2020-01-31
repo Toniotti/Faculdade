@@ -67,4 +67,14 @@ public class SalaService {
         }
         return salaDTOList;
     }
+
+    public List<Sala> getSalasByDtoList(List<SalaDTO> salas) {
+        List<Sala> salaList = new ArrayList<>();
+        salas.forEach(salaDTO -> {
+            salaList.add(this.findEntityBySerieAndLetra(salaDTO.getSerie(), salaDTO.getLetra()));
+
+        });
+        if(salaList.isEmpty()){throw new NoResultException("Nenhuma sala foi encontrada.");}
+        return salaList;
+    }
 }

@@ -51,6 +51,14 @@
 		<artifactId>mssql-jdbc</artifactId>
 		<scope>runtime</scope>
 	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb-parent -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb-parent</artifactId>
+			<version>2.2.4.RELEASE</version>
+			<type>pom</type>
+		</dependency>
+
 	</dependencies>
 
 	<build>
