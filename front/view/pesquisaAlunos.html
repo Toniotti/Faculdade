@@ -11,15 +11,20 @@
 <body>
 
     <div ng-controller="gerenciarSalas">    
-        <select data-ng-init="getAll()" ng-change="changeVars()" ng-model="serieSelecionada">
-            <option value="{{sala.serie}}" ng-repeat="sala in salas">{{sala.serie}}</option>
+        <select ng-model="serieSelecionada" ng-change="changeVars()">
+            <option value="{{series[0]}}" selected>{{series[0]}}</option>
+            <option ng-repeat="serie in series" ng-if="serie != series[0]" value="{{serie}}">{{serie}}</option>
         </select>
-        <select name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada" ng-option="letra as sala.letra for sala in salasBySerie">
+        <select name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
             <option ng-repeat="sala in salasBySerie" value="{{sala.letra}}">{{sala.letra}}</option>
         </select>
     </div>
+
+
     <input type="text" placeholder="Nome do aluno" ng-model="pesquisa" ng-change="pesquisar()">
-    <h1 ng-repeat="aluno in resultadoPesquisa">{{aluno.nome}}</h1 >
+    <h1 ng-repeat="aluno in resultadoPesquisa">
+        <button ng-click="changePath('/gerenciar/alunos/editar/'+aluno.matricula)" class="btn btn-secondary">{{aluno.nome}}</button>
+    </h1 >
 </body>
 
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <input ng-disabled="true" type="text" value="Matricula: {{alunoSelecionado.matricula}}">
+    <input type="text" placeholder="Nome do aluno" ng-model="nomeAlunoEditar">
+
+
+    <div ng-controller="gerenciarSalas">    
+        <select ng-model="serieSelecionada" ng-change="changeVars()">
+            <option value="{{alunoSelecionado.serie}}" selected>{{alunoSelecionado.serie}}</option>
+            <option value="{{serie}}" ng-repeat="serie in series" ng-if="serie != alunoSelecionado.serie">{{serie}}</option>
+        </select>
+        <select name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
+            <option ng-repeat="sala in salasBySerie" value="{{sala.letra}}">{{sala.letra}}</option>
+        </select>
+    </div>
+
+    <button ng-click="editarAluno()">Editar Aluno</button>
+
+</body>
+
+</html>
