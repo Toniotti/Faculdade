@@ -70,4 +70,13 @@ public class AlunoService {
         return alunoDTOList;
     }
 
+    public Aluno getEntityById(Long matricula){
+        Optional<Aluno> alunoOptional = this.alunoRepository.findById(matricula);
+
+        if (alunoOptional.isPresent()){
+            return alunoOptional.get();
+        }
+        throw new NoResultException("Aluno não encontrado.");
+    }
+
 }

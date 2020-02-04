@@ -1,5 +1,4 @@
 angular.module('faculdadeApp').controller('gerenciarAlunos', function ($scope, $routeParams, $http, salaVars, $location) {
-
     $scope.alunoSelecionado = {};
 
     $scope.pesquisar = function () {
@@ -31,6 +30,7 @@ angular.module('faculdadeApp').controller('gerenciarAlunos', function ($scope, $
         }
         $http.put('http://localhost:8080/api/aluno/update/'+$scope.alunoSelecionado.matricula, newAluno)
         .then(function(response){  
+            $scope.retornoEditarAluno = "Aluno editado com sucesso."
         })
         .catch(function(error){
 

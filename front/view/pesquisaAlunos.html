@@ -11,17 +11,16 @@
 <body>
 
     <div ng-controller="gerenciarSalas">    
-        <select ng-model="serieSelecionada" ng-change="changeVars()">
+        <select class="custom-select mr-sm-2" ng-model="serieSelecionada" ng-change="changeVars()">
             <option value="{{series[0]}}" selected>{{series[0]}}</option>
             <option ng-repeat="serie in series" ng-if="serie != series[0]" value="{{serie}}">{{serie}}</option>
         </select>
-        <select name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
+        <select class="custom-select mr-sm-2" name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
             <option ng-repeat="sala in salasBySerie" value="{{sala.letra}}">{{sala.letra}}</option>
         </select>
     </div>
 
-
-    <input type="text" placeholder="Nome do aluno" ng-model="pesquisa" ng-change="pesquisar()">
+    <input class="form-control" type="text" placeholder="Nome do aluno" ng-model="pesquisa" ng-change="pesquisar()">
     <h1 ng-repeat="aluno in resultadoPesquisa">
         <button ng-click="changePath('/gerenciar/alunos/editar/'+aluno.matricula)" class="btn btn-secondary">{{aluno.nome}}</button>
     </h1 >
