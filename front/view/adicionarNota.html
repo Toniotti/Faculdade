@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nota</th>
+                <th>Descricao</th>
+                <th>Remover</th>
+                <th>Atualizar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="nota in notas">
+                <th><input class="form-control" ng-model="notaUpdate[nota.idNota]" type="text" ng-value="nota.nota"></th>
+                <th><input class="form-control" ng-model="descUpdate[nota.idNota]" type="text" ng-value="nota.desc"></th>
+                <th ><button ng-click="delete(nota)" class="btn btn-primary">Remover</button></th>
+                <th ><button ng-click="update(nota.idNota)" class="btn btn-primary">Atualizar</button></th>
+            </tr>
+        </tbody>
+    </table>
+
+    Teste: {{notaUpdate}}
+
+    <input type="text" class="form-control" style="width: 8%;" ng-disabled="true" value="Media: {{media}}">
+
+    <br>
+
+    <div id="divCadastroNota">
+        <input class="form-control" style="width: 8%;" type="number" ng-model="notaAdicionar">
+        <input class="form-control" style="width: 20%;" type="text" ng-model="descAdicionar">
+        <button class="btn btn-secondary" ng-click="save()">Adicionar</button>
+        <br>
+        <button class="btn btn-info" ng-click="gerarBoletim()">Gerar Boletim</button>
+    </div>
+</body>
+</html>

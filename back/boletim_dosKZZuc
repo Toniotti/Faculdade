@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperPrint xmlns="http://jasperreports.sourceforge.net/jasperreports/print" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/print http://jasperreports.sourceforge.net/xsd/jasperprint.xsd" name="boletim" pageWidth="595" pageHeight="842" topMargin="20" leftMargin="20" bottomMargin="20" rightMargin="20" locale="pt_BR" timezone="America/Sao_Paulo">
+	<property name="net.sf.jasperreports.export.xml.start.page.index" value="0"/>
+	<property name="net.sf.jasperreports.export.xml.end.page.index" value="0"/>
+	<property name="net.sf.jasperreports.export.xml.page.count" value="1"/>
+	<origin group="Group1" band="groupHeader"/>
+	<origin group="Group1" band="groupFooter"/>
+	<origin band="background"/>
+	<origin band="title"/>
+	<origin band="pageHeader"/>
+	<origin band="columnHeader"/>
+	<origin band="detail"/>
+	<origin band="columnFooter"/>
+	<origin band="pageFooter"/>
+	<page>
+		<frame>
+			<reportElement uuid="a4d53bd0-cd4c-4d26-ae42-80facc312acb" mode="Opaque" x="0" y="0" width="595" height="92" backcolor="#006699" origin="3" srcId="6"/>
+			<text textHeight="42.765625" lineSpacingFactor="1.2578125" leadingOffset="-7.470703">
+				<reportElement uuid="81ded0b7-e2d5-483c-8d09-c21e8d0cb967" x="20" y="20" width="234" height="43" forecolor="#FFFFFF" origin="3" srcId="7"/>
+				<font size="34" isBold="true"/>
+				<textContent><![CDATA[Boletim]]></textContent>
+			</text>
+			<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+				<reportElement uuid="945885d4-5c30-4fea-a7e2-ea062372573d" x="435" y="32" width="123" height="31" origin="3" srcId="8"/>
+				<textContent><![CDATA[Matheus Batista Toniotti]]></textContent>
+			</text>
+		</frame>
+		<text textAlignment="Center" textHeight="17.609375" lineSpacingFactor="1.2578125" leadingOffset="-3.0761719">
+			<reportElement uuid="b803595e-6ca5-4926-b09c-72153661e6b7" mode="Opaque" x="20" y="105" width="183" height="20" forecolor="#006699" backcolor="#E6E6E6" origin="5" srcId="9"/>
+			<font size="14" isBold="true"/>
+			<textContent><![CDATA[Notas]]></textContent>
+		</text>
+		<line>
+			<reportElement uuid="314068b9-3ffb-476b-9584-e8db92a61742" x="0" y="125" width="595" height="1" forecolor="#666666" origin="5" srcId="10"/>
+		</line>
+		<line>
+			<reportElement uuid="6eccbc17-7b6a-4ff1-a2dd-47fac4a77836" x="0" y="230" width="595" height="1" forecolor="#666666" origin="0" srcId="1"/>
+		</line>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="1533617d-5dcb-41b6-918f-a5dd11448b8a" x="203" y="126" width="372" height="20" origin="0" srcId="2"/>
+			<textContent><![CDATA[[djawidjawodjia, djawidjawodjia, djawidjawodjia]]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="94c4f580-91f9-4d6c-b261-ca7d579da246" x="48" y="126" width="100" height="20" origin="0" srcId="3"/>
+			<textContent><![CDATA[[9999.0, 3.0, 4.0]]]></textContent>
+		</text>
+		<frame>
+			<reportElement uuid="005f6f70-b3cb-48b3-85d8-ba12be07f484" x="20" y="126" width="100" height="104" origin="0" srcId="4"/>
+		</frame>
+		<frame>
+			<reportElement uuid="435ec816-2a88-4771-89fe-aae0187c64e3" x="125" y="126" width="372" height="104" origin="0" srcId="5"/>
+		</frame>
+		<line>
+			<reportElement uuid="1102be90-a62d-412c-ae8a-64c62b159f5b" x="20" y="250" width="555" height="1" origin="6" srcId="11"/>
+		</line>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="893a1fc9-c9e8-4d90-b9f1-2dcc64122190" x="64" y="231" width="100" height="20" origin="6" srcId="12"/>
+			<textContent><![CDATA[Thu Feb 06 12:12:35 ]]></textContent>
+		</text>
+		<text textAlignment="Right" textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="d800f0a0-cd03-4d7d-9b14-9906b42ed71b" mode="Opaque" x="20" y="809" width="515" height="13" backcolor="#E6E6E6" origin="8" srcId="13"/>
+			<textContent><![CDATA[Page 1 of]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="51689bdd-d3ea-4a45-916d-33d13798d6bf" mode="Opaque" x="535" y="809" width="40" height="13" backcolor="#E6E6E6" origin="8" srcId="14"/>
+			<textContent><![CDATA[ 1]]></textContent>
+		</text>
+	</page>
+</jasperPrint>

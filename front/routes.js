@@ -24,5 +24,17 @@ angular.module('faculdadeApp').config(function ($routeProvider) {
             templateUrl: "/view/adicionarNota.html",
             controller: "gerenciarNotas"
         })
+        .when("/gerenciar/professor/cadastro", {
+            templateUrl: "/view/cadastrarProfessor.html",
+            controller: "gerenciarProfessor"
+        })
+        .when("/gerenciar/salas/gerenciar-salas", {
+            templateUrl: "/view/gerenciarSalas.html",
+            controller: "gerenciarSalas"
+        })
+        .when("/gerenciar/professor/pesquisar", {
+            templateUrl: "/view/pesquisarProfessor.html",
+            controller: "gerenciarProfessor"
+        })
         .otherwise({ redirectTo: '/' })
 })

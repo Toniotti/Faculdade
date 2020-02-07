@@ -22,8 +22,11 @@
 
     <input class="form-control" type="text" placeholder="Nome do aluno" ng-model="pesquisa" ng-change="pesquisar()">
     <h1 ng-repeat="aluno in resultadoPesquisa">
+
         <button ng-click="changePath('/gerenciar/alunos/editar/'+aluno.matricula)" class="btn btn-secondary">{{aluno.nome}}</button>
     </h1 >
+
+    {{salaSelecionada}}
 </body>
 
 </html>

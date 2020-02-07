@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+    <div ng-controller="gerenciarSalas">    
+        <select class="custom-select mr-sm-2" style="width: 12%;" ng-model="serieSelecionada" ng-change="changeVars()">
+            <option value="{{series[0]}}" selected>{{series[0]}}</option>
+            <option ng-repeat="serie in series" ng-if="serie != series[0]" value="{{serie}}">{{serie}}</option>
+        </select>
+        <br>
+        <select class="custom-select mr-sm-2" style="width: 12%;" name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
+            <option ng-repeat="sala in salasBySerie" value="{{sala.letra}}">{{sala.letra}}</option>
+        </select>
+    </div>
+
+
+    <button ng-click="adicionarSala()" class="btn btn-primary">Adicionar sala</button>
+    <br><br>
+    <input class="form-control" style="width: 15%;" type="text" ng-model="nomeProfessor" placeholder="Nome do professor">
+    <br><br>
+    <button class="btn btn-primary" ng-click="cadastrarProfessor()">Cadastrar Professor</button>
+
+    <div class="salas-selecionadas float-right">
+        <h1>Salas seleciondas</h1>
+        <h3 ng-repeat="sala in salaSelecionada">{{sala.serie}}{{sala.letra}}</h3><br>
+    </div>
+</body>
+</html>

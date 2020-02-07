@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/css.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
   <script src="./app.js"></script>
@@ -15,6 +16,7 @@
   <script src="./js/controllers/GerenciarSalaController.js"></script>
   <script src="./js/controllers/HomeController.js"></script>
   <script src="./js/controllers/GerenciarNotasController.js"></script>
+  <script src="./js/controllers/GerenciarProfessorController.js"></script>
   <title>{{titulo}}</title>
 </head>
 
@@ -37,35 +39,28 @@
         <div id="button-dropdown-professor">
           <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Professor</button>
           <div id="dropdownProfessorContent">
-            <button ng-click="mudarRota('/gerenciar/professores/pesquisa')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
-            <button ng-click="mudarRota('/gerenciar/professores/cadastro')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
+            <button ng-click="mudarRota('/gerenciar/professor/pesquisar')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
+            <button ng-click="mudarRota('/gerenciar/professor/cadastro')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
           </div>
         </div>
 
         <!-- dropdown sala -->
         <div id="button-dropdown-sala" ng-controller="gerenciarSalas">
-          <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Salas</button>
-          <div id="dropdownSalaContent">
-            <button ng-click="mudarRota('/gerenciar/sala/pesquisa')" ng-click="changeTitle()" class="list-group-item list-group-item-action ">Pesquisar</button>
-          </div>
+          <button class="list-group-item list-group-item-action bg-light dropdownButton" ng-click="mudarRota('/gerenciar/salas/gerenciar-salas')">Gerenciar Salas</button>
         </div>
-      </div>
 
+        
       <!-- dropdown notas -->
-
       <div id="button-dropdown-notas">
-        <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Notas</button>
-        <div id="dropdownNotasContent">
-          <button ng-click="mudarRota('/gerenciar/notas/pesquisa')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
-          <button ng-click="mudarRota('/gerenciar/notas/pesquisarAlunoNota')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
-        </div>
+        <button class="list-group-item list-group-item-action bg-light dropdownButton" ng-click="mudarRota('/gerenciar/notas/pesquisarAlunoNota')">Gerenciar Notas</button>
       </div>
+
 
     </div>
 
+    </div>
 
-
-    <ng-view></ng-view>
+    <ng-view style="width: 100%;"></ng-view v>
 </body>
 
 </html>

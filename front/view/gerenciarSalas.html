@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    Cadastradas: <select class="form-control" style="width: 15%;" ng-model="salaSelecionada" ng-change="changeVarsWithElement()">
+        <option ng-repeat="sala in salas" value="{{sala}}">{{sala.serie}}{{sala.letra}}</option>
+    </select>
+    <br>
+    Cadastrar:
+    <input class="form-control" style="width: 20%;" type="number" placeholder="Serie" ng-model="serieCadastro">   
+    <input class="form-control" style="width: 20%;" type="text" placeholder="Letra" ng-model="letraCadastro">   
+    <br>
+    <button ng-click="cadastrar()" class="btn btn-primary">Cadastrar</button>
+    <button ng-click="update()" class="btn btn-warning">Atualizar</button>
+    <button class="btn btn-danger" ng-click="delete()">Deletar</button>
+</body>
+</html>
