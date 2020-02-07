@@ -2,13 +2,20 @@ package br.com.hbsis.faculdade.professor;
 
 import br.com.hbsis.faculdade.sala.SalaDTO;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfessorDTO {
+    @Size(max = 40, message = "O nome não pode ser maior do que 40.")
+    @NotNull(message = "O nome não pode estar vazio.")
+    @NotBlank(message = "O nome não pode estar vazio.")
     private String nome;
-    @NotNull
+    @NotNull(message = "O professor precisa estar cadastrado em pelo menos uma sala.")
+    @Max(value = 10, message = "O professor não pode ter mais do que 10 salas cadastradas.")
     private List<SalaDTO> salas;
 
     public ProfessorDTO() {

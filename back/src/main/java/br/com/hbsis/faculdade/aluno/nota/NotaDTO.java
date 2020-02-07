@@ -1,16 +1,20 @@
 package br.com.hbsis.faculdade.aluno.nota;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class NotaDTO {
     private Long idNota;
-    @NotNull
+    @NotNull(message = "A nota precisa ser informada.")
+    @Max(value = 10, message = "A nota não pode ser maior do que 10.")
     private Double nota;
-    @NotNull
+    @NotNull(message = "O aluno precisa ser informado.")
     private Long idAluno;
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "A descrição precisa ser informada.")
+    @NotNull(message = "A descrição precisa ser informada.")
+    @Size(max = 120, message = "A descrição não pode ser maior do que 120.")
     private String desc;
 
     public NotaDTO() {

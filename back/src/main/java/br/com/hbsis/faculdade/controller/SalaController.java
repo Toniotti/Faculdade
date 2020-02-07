@@ -19,32 +19,32 @@ public class SalaController {
     }
 
     @PostMapping("/sala/save")
-    public SalaDTO save(@Valid @RequestBody SalaDTO salaDTO){
+    public SalaDTO save(@Valid @RequestBody SalaDTO salaDTO) {
         return this.salaService.save(salaDTO);
     }
 
     @PutMapping("/sala/update/{serie}/{letra}")
-    public SalaDTO update(@Valid @RequestBody SalaDTO salaDTO, @PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
+    public SalaDTO update(@Valid @RequestBody SalaDTO salaDTO, @PathVariable("serie") Integer serie, @PathVariable("letra") String letra) {
         return this.salaService.update(salaDTO, serie, letra);
     }
 
     @DeleteMapping("/sala/delete/{serie}/{letra}")
-    public void delete(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
+    public void delete(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra) {
         this.salaService.delete(serie, letra);
     }
 
     @GetMapping("/sala/{serie}/{letra}")
-    public SalaDTO getSala(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
+    public SalaDTO getSala(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra) {
         return SalaDTO.of(this.salaService.findEntityBySerieAndLetra(serie, letra));
     }
 
     @GetMapping("/sala/all")
-    public List<SalaDTO> getAll(){
+    public List<SalaDTO> getAll() {
         return this.salaService.getAllSalas();
     }
 
     @GetMapping("/sala/all/{serie}")
-    public List<SalaDTO> getAllBySerie(@PathVariable("serie") int serie){
+    public List<SalaDTO> getAllBySerie(@PathVariable("serie") int serie) {
         return this.salaService.getAllBySerie(serie);
     }
 }

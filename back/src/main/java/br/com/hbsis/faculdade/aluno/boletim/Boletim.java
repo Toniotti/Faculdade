@@ -2,34 +2,34 @@ package br.com.hbsis.faculdade.aluno.boletim;
 
 import br.com.hbsis.faculdade.aluno.Aluno;
 import br.com.hbsis.faculdade.aluno.nota.Nota;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Document(collection = "boletim")
 public class Boletim {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     @OneToOne
     private Aluno aluno;
-    @OneToMany
+    @ManyToMany
     private List<Nota> notas;
 
     public Boletim() {
     }
 
-    public Boletim(Long id, Aluno aluno, List<Nota> notas) {
+    public Boletim(String id, Aluno aluno, List<Nota> notas) {
         this.id = id;
         this.aluno = aluno;
         this.notas = notas;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

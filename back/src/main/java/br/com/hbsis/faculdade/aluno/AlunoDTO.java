@@ -1,17 +1,22 @@
 package br.com.hbsis.faculdade.aluno;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AlunoDTO {
     private Long matricula;
-    @NotNull
-    @NotBlank
+    @NotNull(message = "O nome precisa ser informado.")
+    @NotBlank(message = "O nome precisa ser informado.")
+    @Size(max = 40, message = "O nome do aluno não pode ser maior do que 40.")
     private String nome;
-    @NotNull
-    @NotBlank
+    @NotNull(message = "A letra da sala precisa ser informada.")
+    @NotBlank(message = "A letra da sala precisa ser informada.")
+    @Size(max = 2, message = "A letra da sala não pode ser maior do que 2.")
     private String sala;
-    @NotNull
+    @NotNull(message = "A serie precisa ser informada")
+    @Max(value = 3, message = "A serie não pode ser maior do que 3.")
     private Integer serie;
 
     public AlunoDTO() {
@@ -36,7 +41,7 @@ public class AlunoDTO {
                 aluno.getNome(),
                 aluno.getSala().getLetraSala(),
                 aluno.getSala().getSerie()
-                );
+        );
     }
 
     public String getNome() {

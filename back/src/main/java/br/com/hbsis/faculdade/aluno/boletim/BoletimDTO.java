@@ -2,21 +2,28 @@ package br.com.hbsis.faculdade.aluno.boletim;
 
 import br.com.hbsis.faculdade.aluno.AlunoDTO;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BoletimDTO {
 
-
-    private Long id;
+    private String id;
+    @NotNull(message = "O aluno precisa ser informado.")
     private Long aluno;
+    @NotNull(message = "As notas precisam ser informadas.")
     private List<Long> notas;
 
     public BoletimDTO() {
     }
 
-    public BoletimDTO(Long id, Long aluno, List<Long> notas) {
+    public BoletimDTO(String id, Long aluno, List<Long> notas) {
         this.id = id;
+        this.aluno = aluno;
+        this.notas = notas;
+    }
+
+    public BoletimDTO(Long aluno, List<Long> notas) {
         this.aluno = aluno;
         this.notas = notas;
     }
@@ -32,11 +39,11 @@ public class BoletimDTO {
         );
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

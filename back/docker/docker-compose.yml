@@ -7,11 +7,7 @@ sqlserver:
   ports:
     - 1433:1433
 
-mongo-container:
+mongo:
   image: mongo
-  environment:
-    - MONGO_INITDB_ROOT_USERNAME=root
-    - MONGO_INITDB_ROOT_PASSWORD=teste123
   ports:
     - "27017:27017"
-  command: mongod

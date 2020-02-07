@@ -15,15 +15,13 @@
         </thead>
         <tbody>
             <tr ng-repeat="nota in notas">
-                <th><input class="form-control" ng-model="notaUpdate[nota.idNota]" type="text" ng-value="nota.nota"></th>
-                <th><input class="form-control" ng-model="descUpdate[nota.idNota]" type="text" ng-value="nota.desc"></th>
+                <th><input class="form-control" id="nota.{{nota.idNota}}" type="text" ng-value="nota.nota"></th>
+                <th><input class="form-control" id="desc.{{nota.idNota}}" type="text" ng-value="nota.desc"></th>
                 <th ><button ng-click="delete(nota)" class="btn btn-primary">Remover</button></th>
                 <th ><button ng-click="update(nota.idNota)" class="btn btn-primary">Atualizar</button></th>
             </tr>
         </tbody>
     </table>
-
-    Teste: {{notaUpdate}}
 
     <input type="text" class="form-control" style="width: 8%;" ng-disabled="true" value="Media: {{media}}">
 

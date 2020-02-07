@@ -1,5 +1,6 @@
 angular.module('faculdadeApp').controller('gerenciarProfessor', function($scope, $http, salaVars){
-    $scope.salaSelecionada = []
+    $scope.serieSelecionada = {}
+    $scope.letraSelecionada = {}
 
     $scope.adicionarSala = function(){
         $scope.serieSelecionada = salaVars.serieSelecionada

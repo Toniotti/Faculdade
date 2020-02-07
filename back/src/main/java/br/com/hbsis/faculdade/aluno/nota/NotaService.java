@@ -36,7 +36,7 @@ public class NotaService {
             nota.setDescricao(notaDTO.getDesc());
             nota.setAluno(this.alunoService.getEntityById(notaDTO.getIdAluno()));
 
-            return NotaDTO.of(nota);
+            return NotaDTO.of(this.notaRespository.save(nota));
         }
         throw new NoResultException("Nota não encontrada.");
     }
@@ -56,7 +56,18 @@ public class NotaService {
         return notaDTOList;
     }
 
+    public List<Nota> getNotaEntityByAluno(Long matricula){
+        List<Nota> notaList = this.notaRespository.findByAluno(this.alunoService.getEntityById(matricula));
+
+        if(!notaList.isEmpty()){
+            return notaList;
+        }
+
+        throw new NoResultException("Notas não encotradas.");
+    }
+
     public List<Nota> findAllEntityById(List<Long> notas) {
         return this.notaRespository.findAllById(notas);
     }
+
 }

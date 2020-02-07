@@ -1,6 +1,6 @@
 angular.module('faculdadeApp').controller('gerenciarNotas', function($scope, $http, $routeParams, $window){
-    $scope.notaUpdate = {}
-    $scope.descUpdate = {}
+    $scope.notaUpdate = []
+    $scope.descUpdate = []
 
     $scope.getAlunoByMatricula = function(){
         $http.get('http://localhost:8080/api/aluno/'+$routeParams.matricula).then(function(response){
@@ -56,11 +56,14 @@ angular.module('faculdadeApp').controller('gerenciarNotas', function($scope, $ht
     $scope.update = function(idNota){
         
         var notaDTO = {
-            
+            "nota" : document.getElementById('nota.'+idNota).value,
+            "idAluno" : $routeParams.matricula,
+            "desc" : document.getElementById('desc.'+idNota).value
         }
 
+
         $http.put('http://localhost:8080/api/nota/update/'+idNota, notaDTO).then(function(response){
-            console.log(response.data)
+            console.log(response)
         }).catch(function(error){
             console.log(error)
         })
