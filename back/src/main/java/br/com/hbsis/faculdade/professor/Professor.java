@@ -12,7 +12,7 @@ public class Professor {
     private Long id;
     @Column(name = "nome")
     private String nome;
-    @OneToMany
+    @ManyToMany
     private List<Sala> sala;
 
     public Professor() {

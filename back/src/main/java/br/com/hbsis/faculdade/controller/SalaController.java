@@ -23,12 +23,12 @@ public class SalaController {
         return this.salaService.save(salaDTO);
     }
 
-    @PostMapping("/sala/update/{serie}/{letra}")
+    @PutMapping("/sala/update/{serie}/{letra}")
     public SalaDTO update(@Valid @RequestBody SalaDTO salaDTO, @PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
         return this.salaService.update(salaDTO, serie, letra);
     }
 
-    @PostMapping("/sala/delete/{serie}/{letra}")
+    @DeleteMapping("/sala/delete/{serie}/{letra}")
     public void delete(@PathVariable("serie") Integer serie, @PathVariable("letra") String letra){
         this.salaService.delete(serie, letra);
     }

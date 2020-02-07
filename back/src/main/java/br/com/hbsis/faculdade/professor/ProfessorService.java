@@ -25,6 +25,7 @@ public class ProfessorService {
     public ProfessorDTO save(ProfessorDTO professorDTO) {
         Professor professor = new Professor();
         professor.setNome(professorDTO.getNome());
+
         professor.setSala(this.salaService.getSalasByDtoList(professorDTO.getSalas()));
 
         return ProfessorDTO.of(this.professorRepository.save(professor));

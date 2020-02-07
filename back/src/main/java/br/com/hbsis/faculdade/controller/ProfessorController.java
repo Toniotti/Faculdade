@@ -5,6 +5,7 @@ import br.com.hbsis.faculdade.professor.ProfessorService;
 import br.com.hbsis.faculdade.sala.SalaDTO;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,12 +18,12 @@ public class ProfessorController {
     }
 
     @PostMapping("/professor/save")
-    public ProfessorDTO save(@RequestBody ProfessorDTO professorDTO) {
+    public ProfessorDTO save(@Valid @RequestBody ProfessorDTO professorDTO) {
         return this.professorService.save(professorDTO);
     }
 
     @PutMapping("/professor/update")
-    public ProfessorDTO update(@RequestBody ProfessorDTO professorDTO, Long id) {
+    public ProfessorDTO update(@Valid @RequestBody ProfessorDTO professorDTO, Long id) {
         return this.professorService.update(professorDTO, id);
     }
 
@@ -32,7 +33,7 @@ public class ProfessorController {
     }
 
     @GetMapping("/professor/get/{nome}")
-    public List<ProfessorDTO> getAllByNomeAndSala(@PathVariable("nome") String nome, @RequestBody List<SalaDTO> salaDTOList, int page, int size) {
+    public List<ProfessorDTO> getAllByNomeAndSala(@PathVariable("nome") String nome, @Valid @RequestBody List<SalaDTO> salaDTOList, int page, int size) {
         return this.professorService.getProfessorBySerieAndSala(nome, salaDTOList, page, size);
     }
 }

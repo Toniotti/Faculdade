@@ -18,7 +18,7 @@ public class NotaService {
         this.alunoService = alunoService;
     }
 
-    public NotaDTO save(NotaDTO notaDTO){
+    public NotaDTO save(NotaDTO notaDTO) {
         Nota nota = new Nota();
         nota.setAluno(this.alunoService.getEntityById(notaDTO.getIdAluno()));
         nota.setDescricao(notaDTO.getDesc());
@@ -27,10 +27,10 @@ public class NotaService {
         return NotaDTO.of(this.notaRespository.save(nota));
     }
 
-    public NotaDTO update(NotaDTO notaDTO, Long idNota){
+    public NotaDTO update(NotaDTO notaDTO, Long idNota) {
         Optional<Nota> notaOptional = this.notaRespository.findById(idNota);
 
-        if(notaOptional.isPresent()){
+        if (notaOptional.isPresent()) {
             Nota nota = notaOptional.get();
             nota.setNota(notaDTO.getNota());
             nota.setDescricao(notaDTO.getDesc());
@@ -41,16 +41,22 @@ public class NotaService {
         throw new NoResultException("Nota não encontrada.");
     }
 
-    public void delete(Long idNota){
+    public void delete(Long idNota) {
         this.notaRespository.deleteById(idNota);
     }
 
-    public List<NotaDTO> getNotaByAluno(Long idAluno){
+    public List<NotaDTO> getNotaByAluno(Long idAluno) {
         List<NotaDTO> notaDTOList = new ArrayList<>();
         this.notaRespository.findByAluno(this.alunoService.getEntityById(idAluno)).forEach(nota -> notaDTOList.add(NotaDTO.of(nota)));
 
-        if(notaDTOList.isEmpty()){throw new NoResultException("Nenhuma nota encontrada para esse aluno.");}
+        if (notaDTOList.isEmpty()) {
+            throw new NoResultException("Nenhuma nota encontrada para esse aluno.");
+        }
 
         return notaDTOList;
+    }
+
+    public List<Nota> findAllEntityById(List<Long> notas) {
+        return this.notaRespository.findAllById(notas);
     }
 }

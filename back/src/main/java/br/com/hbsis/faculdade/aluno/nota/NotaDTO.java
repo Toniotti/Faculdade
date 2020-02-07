@@ -1,9 +1,16 @@
 package br.com.hbsis.faculdade.aluno.nota;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class NotaDTO {
     private Long idNota;
+    @NotNull
     private Double nota;
+    @NotNull
     private Long idAluno;
+    @NotBlank
+    @NotNull
     private String desc;
 
     public NotaDTO() {

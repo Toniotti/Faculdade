@@ -2,11 +2,13 @@ package br.com.hbsis.faculdade.professor;
 
 import br.com.hbsis.faculdade.sala.SalaDTO;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfessorDTO {
     private String nome;
+    @NotNull
     private List<SalaDTO> salas;
 
     public ProfessorDTO() {
