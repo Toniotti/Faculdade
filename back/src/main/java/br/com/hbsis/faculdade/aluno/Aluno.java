@@ -1,10 +1,8 @@
 package br.com.hbsis.faculdade.aluno;
 
-import br.com.hbsis.faculdade.aluno.nota.Nota;
 import br.com.hbsis.faculdade.sala.Sala;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "aluno")
 public class Aluno {

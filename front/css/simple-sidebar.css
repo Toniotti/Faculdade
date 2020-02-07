@@ -50,7 +50,6 @@ body {
 }
 
 .dropdownButton {
-  background-color: #4b99d1 !important;
   height: 50px;
 }
 
@@ -104,24 +103,6 @@ body {
 }
 
 #dropdownSalaContent{
-  height: 0px;
-}
-
-/* dropdown notas */
-
-#button-dropdown-notas {
-  overflow: hidden;
-  border-bottom: 1px solid rgba(0,0,0,.125);
-}
-
-#button-dropdown-notas:hover .dropdownButton + #dropdownNotasContent{
-  display: block;
-  animation-name: heightTransition;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-}
-
-#dropdownNotasContent{
   height: 0px;
 }
 

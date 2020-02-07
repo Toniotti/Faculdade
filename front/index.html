@@ -9,12 +9,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
   <script src="./app.js"></script>
   <script src="./routes.js"></script>
-  <script src="./js/services/SalaService.js"></script>
-  <script src="./js/services/GerenciarAlunoService.js"></script>
   <script src="./js/controllers/GerenciarAlunosController.js"></script>
   <script src="./js/controllers/GerenciarSalaController.js"></script>
   <script src="./js/controllers/HomeController.js"></script>
-  <script src="./js/controllers/GerenciarNotasController.js"></script>
+  <script src="./js/services/SalaService.js"></script>
+  <script src="./js/services/GerenciarAlunoService.js"></script>
   <title>{{titulo}}</title>
 </head>
 
@@ -50,20 +49,7 @@
           </div>
         </div>
       </div>
-
-      <!-- dropdown notas -->
-
-      <div id="button-dropdown-notas">
-        <button class="list-group-item list-group-item-action bg-light dropdownButton">Gerenciar Notas</button>
-        <div id="dropdownNotasContent">
-          <button ng-click="mudarRota('/gerenciar/notas/pesquisa')" class="list-group-item list-group-item-action bg-light">Pesquisar</button>
-          <button ng-click="mudarRota('/gerenciar/notas/pesquisarAlunoNota')" class="list-group-item list-group-item-action bg-light">Cadastrar</button>
-        </div>
-      </div>
-
     </div>
-
-
 
     <ng-view></ng-view>
 </body>

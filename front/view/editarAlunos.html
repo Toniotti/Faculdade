@@ -6,23 +6,21 @@
 </head>
 
 <body>
-    <input class="form-control" ng-disabled="true" type="text" value="Matricula: {{alunoSelecionado.matricula}}">
-    <input class="form-control" type="text" placeholder="Nome do aluno" ng-model="nomeAlunoEditar">
+    <input ng-disabled="true" type="text" value="Matricula: {{alunoSelecionado.matricula}}">
+    <input type="text" placeholder="Nome do aluno" ng-model="nomeAlunoEditar">
 
 
     <div ng-controller="gerenciarSalas">    
-        <select class="custom-select mr-sm-2" ng-model="serieSelecionada" ng-change="changeVars()">
+        <select ng-model="serieSelecionada" ng-change="changeVars()">
             <option value="{{alunoSelecionado.serie}}" selected>{{alunoSelecionado.serie}}</option>
             <option value="{{serie}}" ng-repeat="serie in series" ng-if="serie != alunoSelecionado.serie">{{serie}}</option>
         </select>
-        <select class="custom-select mr-sm-2" name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
+        <select name="" id="" ng-click="getBySerie()" ng-change="changeVars()" ng-model="letraSelecionada">
             <option ng-repeat="sala in salasBySerie" value="{{sala.letra}}">{{sala.letra}}</option>
         </select>
     </div>
 
-    <button class="btn btn-secondary" ng-click="editarAluno()">Editar Aluno</button>
-
-    <div class="alert alert-success" role="alert">{{retornoEditarAluno}}</div>
+    <button ng-click="editarAluno()">Editar Aluno</button>
 
 </body>
 
