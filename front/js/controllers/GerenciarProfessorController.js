@@ -1,6 +1,9 @@
 angular.module('faculdadeApp').controller('gerenciarProfessor', function($scope, $http, salaVars){
-    $scope.serieSelecionada = {}
-    $scope.letraSelecionada = {}
+    $scope.salaSelecionada = []
+
+    $scope.deletarSalaSelecionada = function(sala){
+        $scope.salaSelecionada.splice($scope.salaSelecionada.indexOf(sala), 1)
+    }
 
     $scope.adicionarSala = function(){
         $scope.serieSelecionada = salaVars.serieSelecionada
@@ -19,12 +22,15 @@ angular.module('faculdadeApp').controller('gerenciarProfessor', function($scope,
     $scope.cadastrarProfessor = function(){
         var professorDTO = {
             "nome" : $scope.nomeProfessor,
-            "salas" : $scope.salaSelecionada
+            "salas" : $scope.salaSelecionada,
+            "cpf" : $scope.cpfProfessor
         }
         $http.post('http://localhost:8080/api/professor/save', professorDTO).then(function(response){
-            console.log(response.data)
+            $scope.nomeProfessor = null
+            $scope.salaSelecionada = null
+            $scope.cpfProfessor = null
         }).catch(function(error){
-            console.log(error)
+            return "erro ao salvar professor"
         })
     }
     function existeArray(array, obj){

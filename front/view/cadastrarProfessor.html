@@ -20,12 +20,18 @@
     <button ng-click="adicionarSala()" class="btn btn-primary">Adicionar sala</button>
     <br><br>
     <input class="form-control" style="width: 15%;" type="text" ng-model="nomeProfessor" placeholder="Nome do professor">
+    <input class="form-control" style="width: 15%;" type="text" ng-model="cpfProfessor" placeholder="CPF">
     <br><br>
     <button class="btn btn-primary" ng-click="cadastrarProfessor()">Cadastrar Professor</button>
 
     <div class="salas-selecionadas float-right">
         <h1>Salas seleciondas</h1>
-        <h3 ng-repeat="sala in salaSelecionada">{{sala.serie}}{{sala.letra}}</h3><br>
+        <div ng-repeat="sala in salaSelecionada">    
+            <h3 style="width: 80%;">{{sala.serie}}{{sala.letra}}<button style="float: left;" class="btn btn-danger" ng-click="deletarSalaSelecionada(sala)">Excluir</button></h3>
+        </div>
+        <br>
     </div>
+
+    {{delete}}
 </body>
 </html>
