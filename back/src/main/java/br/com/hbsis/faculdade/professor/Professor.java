@@ -14,14 +14,16 @@ public class Professor {
     private String nome;
     @ManyToMany
     private List<Sala> sala;
+    private String cpf;
 
     public Professor() {
     }
 
-    public Professor(Long id, String nome, List<Sala> sala) {
+    public Professor(Long id, String nome, List<Sala> sala, String cpf) {
         this.id = id;
         this.nome = nome;
         this.sala = sala;
+        this.cpf = cpf;
     }
 
     public Long getId() {
@@ -46,5 +48,13 @@ public class Professor {
 
     public void setSala(List<Sala> sala) {
         this.sala = sala;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

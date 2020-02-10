@@ -22,13 +22,13 @@ public class ProfessorController {
         return this.professorService.save(professorDTO);
     }
 
-    @PutMapping("/professor/update")
-    public ProfessorDTO update(@Valid @RequestBody ProfessorDTO professorDTO, Long id) {
+    @PutMapping("/professor/update/{id}")
+    public ProfessorDTO update(@Valid @RequestBody ProfessorDTO professorDTO, @PathVariable("id") Long id) {
         return this.professorService.update(professorDTO, id);
     }
 
-    @DeleteMapping("/professor/delete")
-    public void delete(Long id) {
+    @DeleteMapping("/professor/delete/{id}")
+    public void delete(@PathVariable("id") Long id) {
         this.professorService.delete(id);
     }
 
